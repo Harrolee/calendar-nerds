@@ -1,7 +1,7 @@
 # import Pydantic
-from gen_image import generate_image
-from gen_image_desc import generate_image_desc
-from gen_calendar_desc import generate_calendar_description
+from image import generate_image
+from image_desc import Image_Description
+from calendar_desc import generate_calendar_description
 
 
 rpt = {
@@ -14,10 +14,13 @@ rpt = {
 prompt = "cam shredding gnar"
 rpt["prompt"] = prompt
 
-img_path = generate_image()
+# almost there
+img,img_path = generate_image()
 rpt["img"] = img_path
 
-imgDesc = generate_image_desc()
+# check
+imgDesc = Image_Description()
+imgDesc = imgDesc.generate(img)
 rpt["imgDesc"] = imgDesc
 
 calDesc = generate_calendar_description()
